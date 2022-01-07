@@ -11,8 +11,8 @@ import (
 func main() {
 
 	/*
-		     Ensures that the user runs the program by providing a
-			 port number
+		Ensures that the user runs the program by providing a
+		port number
 
 	*/
 	arguments := os.Args
@@ -26,7 +26,6 @@ func main() {
 	l, err := net.Listen("tcp4", PORT)
 	if err != nil {
 		fmt.Println(err)
-		fmt.Println("Port")
 		return
 	}
 	defer l.Close()
@@ -34,13 +33,12 @@ func main() {
 	for {
 
 		c, err := l.Accept()
+
 		if err != nil {
 			fmt.Println(err)
-			fmt.Println("Listen Error")
 			return
 
 		}
-		fmt.Println("Passed")
 
 		//Start the HandleServerConnection and the Client methods as goroutines to allow concurrency
 		go handler.HandleServerConnection(c)
