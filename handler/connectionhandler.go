@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"net"
 	"net/http"
+	"time"
 
 	"github.com/gorilla/mux"
 )
@@ -21,6 +22,7 @@ func Client(port string) {
 
 	if err != nil {
 		fmt.Println(err)
+		fmt.Println("Here now")
 
 	}
 
@@ -46,12 +48,18 @@ func HandleServerConnection(c net.Conn) {
 		fmt.Println(err)
 	} else {
 		r.HandleFunc("/bird", GetConfirmation).Methods("GET")
-		err = http.ListenAndServe(":8000", r)
-		if err != nil {
-			fmt.Println(err)
+
+		//Server Configurations
+		srv := &http.Server{
+			Handler:      r,
+			Addr:         "127.0.0.1:8000",
+			WriteTimeout: 15 * time.Second,
+			ReadTimeout:  15 * time.Second,
 		}
+		srv.ListenAndServe()
 	}
 	c.Close()
+
 }
 
 func GetConfirmation(w http.ResponseWriter, r *http.Request) {

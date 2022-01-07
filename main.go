@@ -26,6 +26,7 @@ func main() {
 	l, err := net.Listen("tcp4", PORT)
 	if err != nil {
 		fmt.Println(err)
+		fmt.Println("Start One")
 		return
 	}
 	defer l.Close()
