@@ -2,8 +2,9 @@ package handler
 
 import (
 	"encoding/gob"
-	"log"
+	"fmt"
 	"net"
+	"net/http"
 
 	"github.com/gorilla/mux"
 )
@@ -19,7 +20,8 @@ func Client(port string) {
 	c, err := net.Dial("tcp", port)
 
 	if err != nil {
-		log.Fatal(err)
+		fmt.Println(err)
+
 	}
 
 	//Inialize an instance of the Mux Router and encode it as A pointer
@@ -41,6 +43,17 @@ func HandleServerConnection(c net.Conn) {
 	err := gob.NewDecoder(c).Decode(&r)
 
 	if err != nil {
-		log.Fatal(err)
+		fmt.Println(err)
+	} else {
+		r.HandleFunc("/bird", GetConfirmation).Methods("GET")
+		err = http.ListenAndServe(":8000", r)
+		if err != nil {
+			fmt.Println(err)
+		}
 	}
+	c.Close()
+}
+
+func GetConfirmation(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "Our Confirmation")
 }
