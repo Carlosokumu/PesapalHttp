@@ -63,7 +63,8 @@ func HandleServerConnection(c net.Conn) {
 			WriteTimeout: 15 * time.Second,
 			ReadTimeout:  15 * time.Second,
 		}
-		srv.ListenAndServe()
+
+		//Securing the server with a self-Signed Certificate
 		srv.ListenAndServeTLS("go-server.crt", "go-server.key")
 	}
 	c.Close()
