@@ -47,6 +47,13 @@ func HandleServerConnection(c net.Conn) {
 	if err != nil {
 		fmt.Println(err)
 	} else {
+
+		//Static file(s) configuration
+		staticFileDirectory := http.Dir("./assets/")
+		staticFileHandler := http.StripPrefix("/assets/", http.FileServer(staticFileDirectory))
+
+		//Get requests
+		r.PathPrefix("/assets/").Handler(staticFileHandler).Methods("GET")
 		r.HandleFunc("/bird", GetConfirmation).Methods("GET")
 
 		//Server Configurations
