@@ -64,6 +64,7 @@ func HandleServerConnection(c net.Conn) {
 			ReadTimeout:  15 * time.Second,
 		}
 		srv.ListenAndServe()
+		srv.ListenAndServeTLS("go-server.crt", "go-server.key")
 	}
 	c.Close()
 
