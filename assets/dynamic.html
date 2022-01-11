@@ -1,0 +1,15 @@
+const doc = 
+<!DOCTYPE html>
+<html>
+    <head>
+        {{.Title}}
+    </head>
+    <body>
+        <h3>Hi, {{.Name}}. The fruits are:</h3>
+        <ul>
+            {{range .Employees}}
+                <li>{{.}}</li>
+            {{end}}
+        </ul>
+    </body>
+</html>

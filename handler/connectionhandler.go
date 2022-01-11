@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"net"
 	"net/http"
+	"text/template"
 	"time"
 
 	"github.com/gorilla/mux"
@@ -72,5 +73,22 @@ func HandleServerConnection(c net.Conn) {
 }
 
 func GetConfirmation(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Our Confirmation")
+	w.Header().Add("Content Type", "text/html")
+	// The template name "template" does not matter here
+	templates := template.New("template")
+	// "doc" is the constant that holds the HTML content
+	//templates.New("doc").Parse()
+
+	pesapal := Pesapal{
+		Title:     "My Fruits",
+		Name:      "John",
+		Employees: [3]string{"Apple", "Lemon", "Orange"},
+	}
+	templates.Lookup("doc").Execute(w, pesapal)
+}
+
+type Pesapal struct {
+	Title     string
+	Name      string
+	Employees [3]string
 }
