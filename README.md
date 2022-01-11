@@ -33,8 +33,10 @@ from the root folder of the project
 
  ## Building an Http Web server on a configurable tcp port  
  The server is basically started by running the command `go run main.go tcpport`
+
  Once the client makes the connection to the right port,the http server starts serving 
  the required static html and dynamically generated html.
+ 
  A  [mux router](https://github.com/gorilla/mux) is encoded by the client then decoded by the connection handler then used to
  handle different requests.       
      
