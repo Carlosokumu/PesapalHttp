@@ -32,13 +32,31 @@ from the root folder of the project
         go mod tidy
 
  ## Building an Http Web server on a configurable tcp port  
- The server is basically started by running the command `go run main.go tcpport`
+ The server is basically started by running the command `go run main.go port`
 
  Once the client makes the connection to the right port,the http server starts serving 
  the required static html and dynamically generated html.
- 
- A  [mux router](https://github.com/gorilla/mux) is encoded by the client then decoded by the connection handler then used to
- handle different requests.       
+
+ A  [mux router](https://github.com/gorilla/mux) is encoded by the client then decoded by the connection handler then used to handle different requests.  
+
+
+        func Client(port string) {
+
+	        c, err := net.Dial("tcp", port)
+
+	        if err != nil {
+		      fmt.Println(err)
+		      fmt.Println("Here now")
+
+	     }
+
+	     //Inialize an instance of the Mux Router and encode it as A pointer
+	      r := mux.NewRouter()
+	     gob.NewEncoder(c).Encode(*r)
+	     c.Close()
+
+}
+
      
 
 
