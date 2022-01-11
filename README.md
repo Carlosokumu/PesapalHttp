@@ -18,7 +18,11 @@ The server serves like below:
      and the only headers it must support are Content-Type and Content-Length.
 
 **Prerequisite**
-You need to have the following to run the server in your machine:
-- A basic Understanding of [Golang](https://go.dev/) and how to set up your [Go workspace.](https://go.dev/doc/gopath_code)
-- Go installed in your machine
+     You need to have the following to run the server in your machine:
+       - A basic Understanding of [Golang](https://go.dev/) and how to set up your [Go workspace.](https://go.dev/doc/gopath_code)
+       - Go installed in your machine
+**Environmental Setup**
+     To ensure you have all the deoendincies needed to run the application,run the following command
+     from the root folder of the project
+           
 
