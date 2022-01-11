@@ -38,8 +38,8 @@ from the root folder of the project
  the required static html and dynamically generated html.
 
  A  [mux router](https://github.com/gorilla/mux) is encoded by the client then decoded by the connection handler then used to handle different requests.  
-
-
+ 
+        ###Client
         func Client(port string) {
 
 	        c, err := net.Dial("tcp", port)
@@ -55,7 +55,40 @@ from the root folder of the project
 	     gob.NewEncoder(c).Encode(*r)
 	     c.Close()
 
-}
+        }
+
+        ###Handler
+        func HandleServerConnection(c net.Conn) {
+
+	        var r *mux.Router
+	        err := gob.NewDecoder(c).Decode(&r)
+
+	        if err != nil {
+		         fmt.Println(err)
+	        } else {
+
+		        //Static file(s) configuration
+		        staticFileDirectory := http.Dir("./assets/")
+		        staticFileHandler := http.StripPrefix("/assets/", http.FileServer(staticFileDirectory))
+
+		        //Get requests
+		        r.PathPrefix("/assets/").Handler(staticFileHandler).Methods("GET")
+		        r.HandleFunc("/bird", GetConfirmation).Methods("GET")
+
+		        //Server Configurations
+		         srv := &http.Server{
+			        Handler:      r,
+			        Addr:         "127.0.0.1:8000",
+			        WriteTimeout: 15 * time.Second,
+			        ReadTimeout:  15 * time.Second,
+		    }
+
+		//Securing the server with a self-Signed Certificate
+		srv.ListenAndServeTLS("go-server.crt", "go-server.key")
+	      }
+	      c.Close()
+
+           }
 
      
 
