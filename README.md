@@ -1,5 +1,5 @@
-# PesapalTcp
-Solution to  Junior  Developer role -Tcp server
+# Solution to  Junior  Developer role -Http server
+
 
 Writing an Http Server  in Golang.
 
