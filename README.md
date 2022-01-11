@@ -19,6 +19,6 @@ The server serves like below:
 
 **Prerequisite**
 You need to have the following to run the server in your machine:
-- A basic Understanding of Golang and how to set up your workspace.
+- A basic Understanding of [Golang](https://go.dev/) and how to set up your [Go workspace.](https://go.dev/doc/gopath_code)
 - Go installed in your machine
 
