@@ -31,7 +31,8 @@ from the root folder of the project
 
         go mod tidy
 
- ## Building an Http Web server on a configurable tcp port       
+ ## Building an Http Web server on a configurable tcp port  
+ The server is basically started by running the command `go run main.go (portnumber)`      
      
 
 
