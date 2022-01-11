@@ -28,7 +28,8 @@ You need to have the following to run the server in your machine:
 
 To ensure you have all the dependencies needed to run the application,run the following command
 from the root folder of the project
-    go mod tidy
+
+        go mod tidy
      
 
 
