@@ -16,3 +16,9 @@ The server serves like below:
      dynamically generated HTML by means of a chosen programming language, such as in the way Apache uses PHP. 
      It is acceptable for this server application to support only a restricted subset of HTTP, such as GET or POST requests, 
      and the only headers it must support are Content-Type and Content-Length.
+
+**Prerequisite**
+You need to have the following to run the server in your machine:
+- A basic Understanding of Golang and how to set up your workspace.
+- Go installed in your machine
+
