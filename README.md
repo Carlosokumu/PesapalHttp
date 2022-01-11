@@ -24,10 +24,10 @@ You need to have the following to run the server in your machine:
 - Go installed in your machine
 
 
-**Environmental Setup**
+**Environment Setup**
 
-     To ensure you have all the dependencies needed to run the application,run the following command
-     from the root folder of the project
+To ensure you have all the dependencies needed to run the application,run the following command
+from the root folder of the project
      
 
 
