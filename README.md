@@ -39,7 +39,7 @@ from the root folder of the project
 
  A  [mux router](https://github.com/gorilla/mux) is encoded by the client then decoded by the connection handler then used to handle different requests.  
  
-        >Client
+        > Client
         func Client(port string) {
 
 	        c, err := net.Dial("tcp", port)
@@ -57,7 +57,7 @@ from the root folder of the project
 
         }
 
-        >Handler
+        > Handler
         func HandleServerConnection(c net.Conn) {
 
 	        var r *mux.Router
@@ -85,10 +85,10 @@ from the root folder of the project
 
 		  //Securing the server with a self-Signed Certificate
 		   srv.ListenAndServeTLS("go-server.crt", "go-server.key")
-	      }
+	        }
 	         c.Close()
 
-           }
+          }
 
      
 
