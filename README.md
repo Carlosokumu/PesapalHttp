@@ -100,3 +100,5 @@ Please note that this should be run from the root directory of the project.
 
 
 Depending on your organization name and current location, respond to each question appropriately. Make sure you've provided the correct public IP address or domain name when prompted to enter.
+
+If everything went well,you should now see the go-server.crt and go-server.key files on the file list in your project.
