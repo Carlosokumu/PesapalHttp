@@ -104,4 +104,4 @@ Depending on your organization name and current location, respond to each questi
 If everything went well,you should now see the `go-server.crt` and `go-server.key` files on the file list in your project.
 
 Now visiting the server without a secure connection,you should see the message on your browser as below
-![Http Exception](demo/httpserr.gif)
+![Http Exception](demo/httpserr.PNG)
