@@ -99,3 +99,4 @@ Please note that this should be run from the root directory of the project.
        openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout go-server.key -out go-server.crt
 
 
+Depending on your organization name and current location, respond to each question appropriately. Make sure you've provided the correct public IP address or domain name when prompted to enter.
