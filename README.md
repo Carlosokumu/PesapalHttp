@@ -34,7 +34,7 @@ from the root folder of the project
  ## Building an Http Web server on a configurable tcp port  
  The server is basically started by running the command `go run main.go port`
 
- Port here is a valid port number where the tcp server will listen to connections made.
+ > Port here is a valid port number where the tcp server will listen to connections made.
 
  Once the client makes the connection to the right port,the http server starts serving 
  the required static html and dynamically generated html.
