@@ -92,6 +92,7 @@ from the root folder of the project
 
           }
 
-     
+## Securing your Http Server with a self signed Certificate
+Use the openssl command below to create a private key (go-server.key) and a self-signed certificate (go-server.crt) valid for 365 days with a key size of 2,048 bits.    
 
 
