@@ -8,5 +8,51 @@
 <body>
     <h1 style="margin-left: 28rem; text-decoration-color: black; font-family: 'Courier New', Courier, monospace;">Welcome to Pesapal</h1>
     <img style="margin-left: 25rem;" src="./pesapal.png"/>
+
+    <h2 style="margin-left: 30rem; text-decoration-color: cadetblue;">Join Our Team!</h2>
+    <form  action="/bird" method="post" style="margin-left: 28rem;">
+        Name:
+        <input type="text" name="name">
+        <br/> Email:
+        <input type="text" name="email">
+        <br/>
+        <input type="submit" value="Submit" style="margin-top: 2rem ;">
+      </form>
+      <h2 style="margin-left: 30rem;">Our Members</h2>
+      <table style="margin-left: 25rem; margin-top: 2rem;" >
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+        </tr>
+        </tr>
+      </table>
+      <script>
+        teamTable = document.querySelector("table")
+        fetch("/members")
+          .then(response => response.json())
+          .then(teamList => {
+            //Once we fetch the list, we iterate over it
+            teamList.forEach(member => {
+              console.log(member.name)
+              // Create the table row
+              row = document.createElement("tr")
+    
+              // Create the table data elements for the names and
+              // emails columns
+              names = document.createElement("td")
+              names.innerHTML = member.Name
+              emails = document.createElement("td")
+              emails.innerHTML = member.Email
+    
+              // Add the data elements to the row
+              row.appendChild(names)
+              row.appendChild(emails)
+
+              
+              // Finally, add the row element to the table itself
+              teamTable.appendChild(row)
+            })
+          })
+      </script>
 </body>
 </html>

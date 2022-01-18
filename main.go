@@ -30,19 +30,16 @@ func main() {
 	}
 	defer l.Close()
 
-	for {
+	//Start the HandleServerConnection and the Client methods as goroutines to allow concurrency
 
+	for {
 		c, err := l.Accept()
 
 		if err != nil {
 			fmt.Println(err)
-			return
-
 		}
-
-		//Start the HandleServerConnection and the Client methods as goroutines to allow concurrency
+		handler.Client(PORT)
 		go handler.HandleServerConnection(c)
-		go handler.Client(PORT)
 
 	}
 
