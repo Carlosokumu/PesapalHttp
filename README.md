@@ -91,7 +91,7 @@ from the root folder of the project
 	         c.Close()
 
           }
-## Demonstrating the Server Requests(Post & Get)
+## Demonstrating how the Server handles Requests(Post & Get)
 To show how the server handles Get and Post requests,i have added a simple html form.One can add the name and email then submit.
 The name is then added to the members' list as shown below:
 
