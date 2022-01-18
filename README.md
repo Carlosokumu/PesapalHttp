@@ -92,7 +92,8 @@ from the root folder of the project
 
           }
 ## Demonstrating the Server Requests(Post & Get)
-To show how the server handles Get and Post requests,i have added html to interact with
+To show how the server handles Get and Post requests,i have added a simple html form.One can add the name and email then submit.
+The name is then added to the members' list as shown below:
 ## Securing your Http Server with a self signed Certificate
 Use the openssl command below to create a private key (go-server.key) and a self-signed certificate (go-server.crt) valid for 365 days with a key size of 2,048 bits.
 Please note that this should be run from the root directory of the project.
