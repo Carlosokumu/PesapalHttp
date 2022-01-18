@@ -110,3 +110,6 @@ If everything went well,you should now see the `go-server.crt` and `go-server.ke
 Now visiting the server without a secure connection,you should see the message on your browser as below:
 
 ![Http Exception](demo/httpserr.PNG)
+
+
+**Wrapping Up**
